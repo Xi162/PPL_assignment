@@ -1,1 +1,1 @@
-"I have a cow - what ?",<EOF>
+I have a cow - what ?,<EOF>
