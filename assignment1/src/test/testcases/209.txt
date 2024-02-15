@@ -1,6 +1,8 @@
 
 number a <- 1
 number b[5,4] <- [1,2,3,[a,3], a + 1]
+##this is a comment
+string str <- "\' Hi My name is 'Huy', I say: '"Hello'"" ## this is a comment
 func print (number a)
 func main() begin
     var i <- 0

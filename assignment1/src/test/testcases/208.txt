@@ -12,6 +12,20 @@ func main() begin
             continue
     end
 end
-func print (number a) a <- 1
-
+func print (number a) begin
+    a <- 1
+end
+func ah(string b[9,10], bool c) begin
+    a <- 1
+    for a until a < 8 + 9 by 1 begin
+        if (i % 2 = 0) begin
+            a <- 10.4e3
+            ah(a,b)
+        end
+        elif (i % 3 = 0) return 1
+        elif (i % 4 = 0) break
+        else
+            continue
+    end
+end
         

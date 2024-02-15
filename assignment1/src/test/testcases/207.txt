@@ -12,8 +12,6 @@ func main() begin
             continue
     end
 end
-func print (number a) begin
-    putIntLn(a)
-end
+func print (number a) a <- 1
 
         

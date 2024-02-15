@@ -9,7 +9,7 @@ from antlr4 import *
 
 for path in ['./test/', './main/zcode/parser/', './main/zcode/utils/', './main/zcode/astgen/', './main/zcode/checker/', './main/zcode/codegen/']:
     sys.path.append(path)
-os.environ['ANTLR_JAR'] = '../antlr-4.9.2-complete.jar'
+os.environ['ANTLR_JAR'] = '../../antlr-4.9.2-complete.jar'
 ANTLR_JAR = os.environ.get('ANTLR_JAR')
 TARGET_DIR = '../target'
 GENERATE_DIR = 'main/zcode/parser'

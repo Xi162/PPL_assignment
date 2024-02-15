@@ -127,15 +127,15 @@ public interface ZCodeListener extends ParseTreeListener {
 	 */
 	void exitVar_decl(ZCodeParser.Var_declContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ZCodeParser#type}.
+	 * Enter a parse tree produced by {@link ZCodeParser#typ}.
 	 * @param ctx the parse tree
 	 */
-	void enterType(ZCodeParser.TypeContext ctx);
+	void enterTyp(ZCodeParser.TypContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ZCodeParser#type}.
+	 * Exit a parse tree produced by {@link ZCodeParser#typ}.
 	 * @param ctx the parse tree
 	 */
-	void exitType(ZCodeParser.TypeContext ctx);
+	void exitTyp(ZCodeParser.TypContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link ZCodeParser#initialization}.
 	 * @param ctx the parse tree
@@ -287,6 +287,16 @@ public interface ZCodeListener extends ParseTreeListener {
 	 */
 	void exitLhs(ZCodeParser.LhsContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link ZCodeParser#array_ele}.
+	 * @param ctx the parse tree
+	 */
+	void enterArray_ele(ZCodeParser.Array_eleContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ZCodeParser#array_ele}.
+	 * @param ctx the parse tree
+	 */
+	void exitArray_ele(ZCodeParser.Array_eleContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link ZCodeParser#if_statement}.
 	 * @param ctx the parse tree
 	 */
@@ -337,15 +347,15 @@ public interface ZCodeListener extends ParseTreeListener {
 	 */
 	void exitEliflisttail(ZCodeParser.EliflisttailContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ZCodeParser#elif}.
+	 * Enter a parse tree produced by {@link ZCodeParser#elifpart}.
 	 * @param ctx the parse tree
 	 */
-	void enterElif(ZCodeParser.ElifContext ctx);
+	void enterElifpart(ZCodeParser.ElifpartContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ZCodeParser#elif}.
+	 * Exit a parse tree produced by {@link ZCodeParser#elifpart}.
 	 * @param ctx the parse tree
 	 */
-	void exitElif(ZCodeParser.ElifContext ctx);
+	void exitElifpart(ZCodeParser.ElifpartContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link ZCodeParser#elsepart}.
 	 * @param ctx the parse tree

@@ -1,2 +1,2 @@
-int main( {}
+func a(number b[5]) return 1
         

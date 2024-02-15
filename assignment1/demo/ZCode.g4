@@ -25,7 +25,7 @@ typ: NUMBER | BOOL | STRING;
 initialization: ASSIGNOP expr;
 
 // array declarations
-array_decl: typ IDENTIFIER dimensionlist array_init;
+array_decl: typ IDENTIFIER dimensionlist (array_init | );
 dimensionlist: LSQB numlitlist RSQB;
 numlitlist: NUMLIT numlitlisttail;
 numlitlisttail: COMMA NUMLIT numlitlisttail | ;
@@ -36,7 +36,7 @@ array_decl_elelisttail: COMMA array_decl_ele array_decl_elelisttail | ;
 array_decl_ele: expr | arraylit;
 literals: NUMLIT | BOOLLIT | STRINGLIT;
 
-// TODO: statement (2)
+// statement
 statement: var_decl_statement
 		| assign_statement
 		| if_statement
@@ -51,7 +51,8 @@ var_decl_statement: var_decl linebreaklist;
 
 // assign statement
 assign_statement: lhs ASSIGNOP expr linebreaklist;
-lhs: IDENTIFIER | array_indexing;
+lhs: IDENTIFIER | array_ele;
+array_ele: IDENTIFIER index_operator;
 
 // if statement
 if_statement: ifpart eliflist elsepart;
@@ -82,6 +83,7 @@ block_statement: BEGIN linebreaklist statementlist END linebreaklist;
 statementlist: statement statementlisttail | ;
 statementlisttail: statement statementlisttail | ;
 
+// expression
 expr: lv8_expr ELLIPOP lv8_expr
 	| lv8_expr;
 lv8_expr: lv7_expr EQUALOP lv7_expr
@@ -142,7 +144,7 @@ linebreaklisttail: LINEBREAK linebreaklisttail | ;
 // Lexer
 NUMLIT: DIGIT+ ('.' DIGIT*)? ([eE] [+-]? DIGIT+)?;
 BOOLLIT: TRUE | FALSE;
-STRINGLIT: '"' (ESC | ~('\\' | '"' | '\n'))* '"' {self.text = self.text[1:-1]};
+STRINGLIT: '"' (ESC | ~('\\' | '"' | '\n' | '\r'))* '"';
 TRUE: 'true';
 FALSE: 'false';
 NUMBER: 'number';
@@ -196,9 +198,6 @@ fragment BACKLASHESC: '\\' '\\';
 fragment DQUOTEESC: '\'' '"';
 fragment ESC: (BACKSPACEESC | FORMFEEDESC | CARRETURNESC | NEWLINEESC | TABESC | SQUOTEESC | BACKLASHESC | DQUOTEESC);
 
-LINEBREAK: '\n';
-COMMENT: '#' '#' (~('\n'))* (EOF | ) -> skip; //skip comments
-WS : [ \t\r\b\f]+ -> skip ; // skip spaces, tabs, newlines
-ERROR_CHAR: . {raise ErrorToken(self.text)};
-ILLEGAL_ESCAPE: '"' .*? (('\\' (~('b' | 'f' | 'r' | 'n' | 't' | '\'' | '\\')))) {raise IllegalEscape(self.text[1:len(self.text)])};
-UNCLOSE_STRING: '"' (ESC | ~('\\' | '"' | '\n'))* ('\n' | EOF) {raise UncloseString(self.text[1:len(self.text)-1]) if(self.text[len(self.text)-1] == '\n') else UncloseString(self.text[1:len(self.text)])};
+LINEBREAK: '\n' | '\r' | '\r' '\n';
+COMMENT: '#' '#' (~('\n' | '\r'))* (EOF | ) -> skip; //skip comments
+WS : [ \t\b\f]+ -> skip ; // skip spaces, tabs, newlines

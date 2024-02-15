@@ -159,13 +159,13 @@ public class ZCodeBaseListener implements ZCodeListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterType(ZCodeParser.TypeContext ctx) { }
+	@Override public void enterTyp(ZCodeParser.TypContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitType(ZCodeParser.TypeContext ctx) { }
+	@Override public void exitTyp(ZCodeParser.TypContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -351,6 +351,18 @@ public class ZCodeBaseListener implements ZCodeListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterArray_ele(ZCodeParser.Array_eleContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitArray_ele(ZCodeParser.Array_eleContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterIf_statement(ZCodeParser.If_statementContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -411,13 +423,13 @@ public class ZCodeBaseListener implements ZCodeListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterElif(ZCodeParser.ElifContext ctx) { }
+	@Override public void enterElifpart(ZCodeParser.ElifpartContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitElif(ZCodeParser.ElifContext ctx) { }
+	@Override public void exitElifpart(ZCodeParser.ElifpartContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
