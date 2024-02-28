@@ -1,0 +1,5 @@
+
+        func print(string a)
+        func print(string a)
+        func print1(string a)
+        

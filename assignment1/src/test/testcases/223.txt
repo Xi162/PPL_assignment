@@ -1,0 +1,7 @@
+
+func main()
+begin
+    if (a = 4) number a <- 1
+    elif(a = 5) number a <- 2
+    else return 2
+end

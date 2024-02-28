@@ -1,0 +1,8 @@
+
+        ## some
+        bool flag <- true ## thing
+        func main()
+            begin
+                continue flag ## is hidden
+            end
+        

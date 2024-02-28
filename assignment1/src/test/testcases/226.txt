@@ -1,0 +1,14 @@
+
+func main()
+begin
+    if (a = 4) number a <- 1
+    elif(a = 5) 
+        begin
+            number a <- 2
+            return 1
+        end
+    elif(a = 6) 
+        number a <- 3
+    else return 2
+    return 3
+end

@@ -1,0 +1,9 @@
+
+        ## declare a variable
+        number A <- 1
+        func main()
+            begin
+                print(A)
+                return 0*3
+            end
+        

@@ -1,0 +1,3 @@
+
+        func ifs() begin if (a = 4) number a <- 1 end
+        

@@ -1,0 +1,3 @@
+
+        var a100 <- 1 or "Hello"
+        

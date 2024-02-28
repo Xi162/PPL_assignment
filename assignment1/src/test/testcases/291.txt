@@ -1,0 +1,4 @@
+
+        func Number() return aNumber + Number()
+        func main() return Number()
+        

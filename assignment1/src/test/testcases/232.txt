@@ -1,0 +1,5 @@
+
+        bool flag <- true
+        func main()
+            if (flag) return 1
+        

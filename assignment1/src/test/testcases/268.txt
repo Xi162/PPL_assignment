@@ -1,0 +1,6 @@
+
+        func a(number a)
+            begin
+                a <- 1.0e-3 ... 1.2prtint((a(), b)
+            end
+        

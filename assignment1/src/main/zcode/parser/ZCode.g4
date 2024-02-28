@@ -42,8 +42,8 @@ array_init: ASSIGNOP arraylit;
 arraylit: LSQB array_decl_elelist RSQB;
 array_decl_elelist: array_decl_ele array_decl_elelisttail;
 array_decl_elelisttail: COMMA array_decl_ele array_decl_elelisttail | ;
-array_decl_ele: expr | arraylit;
-literals: NUMLIT | BOOLLIT | STRINGLIT;
+array_decl_ele: expr;
+literals: NUMLIT | BOOLLIT | STRINGLIT | arraylit;
 
 // statement
 statement: var_decl_statement

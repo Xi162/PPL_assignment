@@ -1,0 +1,8 @@
+
+        ## Hello this is a comment
+        string a <- "Hello"
+        func print() return a
+        func main()
+        func main() return print(print())
+        ## the end
+        

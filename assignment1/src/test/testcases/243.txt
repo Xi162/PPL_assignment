@@ -1,0 +1,9 @@
+
+        func print(string a)
+        func main() return print("Hello")
+        func print(string a)
+            begin
+                putString(a)
+            end
+        
+        

@@ -1,0 +1,4 @@
+
+        var _ <- 1
+        func _a_() return _
+        

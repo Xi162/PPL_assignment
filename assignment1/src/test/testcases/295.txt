@@ -1,0 +1,7 @@
+
+        bool flag <- true
+        func main()
+            begin
+                continue flag
+            end
+        

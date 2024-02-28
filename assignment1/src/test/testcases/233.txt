@@ -1,0 +1,9 @@
+
+        func print(string a[5,4], bool b) 
+            begin
+                putString(a[1])
+            end
+        func main()
+            begin
+            end
+        

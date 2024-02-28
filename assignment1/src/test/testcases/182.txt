@@ -1,0 +1,1 @@
+"Dear teacher, I see that in Window, '"\n'" is automatically convert to '"\r\n'" . Which result in 2 newline after reading the solution file. Regarding the '"\r'" is now not a whitespace, but also not a newline. We found inconsistent between many friends regarding the '"\r\n'" , '"\r'" is skip or count as the second '"\n'". This result in error in different column."
