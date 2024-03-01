@@ -4,7 +4,7 @@ grammar ZCode;
 program: nullablelinebreaklist decllist EOF;
 decllist: decl decllisttail;
 decllisttail: decl decllisttail | ;
-decl: func_decl | var_decl linebreaklist;
+decl: (func_decl | var_decl) linebreaklist;
 
 // function declarations
 func_decl: FUNC IDENTIFIER param_decl func_decl_end;
@@ -31,10 +31,10 @@ numlitlist: NUMLIT numlitlisttail;
 numlitlisttail: COMMA NUMLIT numlitlisttail | ;
 array_init: ASSIGNOP arraylit;
 arraylit: LSQB array_decl_elelist RSQB;
-array_decl_elelist: array_decl_ele array_decl_elelisttail;
+array_decl_elelist: array_decl_ele array_decl_elelisttail | ;
 array_decl_elelisttail: COMMA array_decl_ele array_decl_elelisttail | ;
-array_decl_ele: expr | arraylit;
-literals: NUMLIT | BOOLLIT | STRINGLIT;
+array_decl_ele: expr;
+literals: NUMLIT | BOOLLIT | STRINGLIT | arraylit;
 
 // statement
 statement: var_decl_statement

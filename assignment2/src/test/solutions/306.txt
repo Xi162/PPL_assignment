@@ -1,0 +1,1 @@
+Program([VarDecl(Id(a), ArrayType([3.0, 2.0], BoolType), None, ArrayLit(BooleanLit(True), BooleanLit(False), BinaryOp(and, BooleanLit(True), BooleanLit(False)), ArrayLit(BinaryOp(or, BooleanLit(True), BooleanLit(True)), UnaryOp(not, BooleanLit(True))))), VarDecl(Id(b), NumberType, None, None)])

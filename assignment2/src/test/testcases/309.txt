@@ -1,0 +1,6 @@
+
+        func print(number a)
+        begin
+            print(a)
+        end
+        
