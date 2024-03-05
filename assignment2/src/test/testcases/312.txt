@@ -1,5 +1,4 @@
-
-        func print()
+func print()
         begin
         end
         

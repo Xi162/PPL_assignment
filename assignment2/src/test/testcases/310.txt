@@ -1,4 +1,2 @@
-
 func print(number a)
-
         

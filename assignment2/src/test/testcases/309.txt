@@ -1,5 +1,4 @@
-
-        func print(number a)
+func print(number a)
         begin
             print(a)
         end

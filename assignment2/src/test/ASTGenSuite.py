@@ -12,6 +12,7 @@ class ASTGenSuite(unittest.TestCase):
         
     def test_simple_program_2(self):
         input = """string a <- "Hello"
+        
         """
         expect = str(Program([VarDecl(Id("a"), StringType(), None, StringLiteral("Hello"))]))
         self.assertTrue(TestAST.test(input, expect, 301))
@@ -63,8 +64,7 @@ class ASTGenSuite(unittest.TestCase):
         self.assertTrue(TestAST.test(input, expect, 308))
         
     def test_simple_program_10(self):
-        input = """
-        func print(number a)
+        input = """func print(number a)
         begin
             print(a)
         end
@@ -73,24 +73,19 @@ class ASTGenSuite(unittest.TestCase):
         self.assertTrue(TestAST.test(input, expect, 309))
         
     def test_simple_program_11(self):
-        input = """
-func print(number a)
-
+        input = """func print(number a)
         """
         expect = str(Program([FuncDecl(Id("print"), [VarDecl(Id("a"), NumberType())], None)]))
         self.assertTrue(TestAST.test(input, expect, 310))
         
     def test_simple_program_12(self):
-        input = """
-        func print()
-        
+        input = """func print()
         """
         expect = str(Program([FuncDecl(Id("print"), [], None)]))
         self.assertTrue(TestAST.test(input, expect, 311))
         
     def test_simple_program_13(self):
-        input = """
-        func print()
+        input = """func print()
         begin
         end
         """
@@ -133,6 +128,7 @@ func ah(string b[9,10], bool c) begin
             continue
     end
 end
+
         """
         expect = str(Program([
             VarDecl(Id("a"), NumberType()),
@@ -168,3 +164,9 @@ end
             ]))
         ]))
         self.assertTrue(TestAST.test(input, expect, 313))
+        
+    def test_simple_program_15(self):
+        input = """func main() return 1
+        """
+        expect = str(Program([FuncDecl(Id("main"), [], Return(NumberLiteral(1.0)))]))
+        self.assertTrue(TestAST.test(input, expect, 314))

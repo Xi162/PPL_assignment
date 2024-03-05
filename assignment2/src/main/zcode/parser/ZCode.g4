@@ -13,7 +13,7 @@ options {
 program: nullablelinebreaklist decllist EOF;
 decllist: decl decllisttail;
 decllisttail: decl decllisttail | ;
-decl: (func_decl | var_decl) linebreaklist;
+decl: func_decl | var_decl linebreaklist;
 
 // function declarations
 func_decl: FUNC IDENTIFIER param_decl func_decl_end;

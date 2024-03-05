@@ -23,7 +23,7 @@ def serializedATN():
         buf.write("\4\65\t\65\4\66\t\66\4\67\t\67\48\t8\49\t9\4:\t:\4;\t")
         buf.write(";\4<\t<\4=\t=\4>\t>\4?\t?\4@\t@\4A\tA\4B\tB\3\2\3\2\3")
         buf.write("\2\3\2\3\3\3\3\3\3\3\4\3\4\3\4\3\4\5\4\u0090\n\4\3\5\3")
-        buf.write("\5\5\5\u0094\n\5\3\5\3\5\3\6\3\6\3\6\3\6\3\6\3\7\3\7\3")
+        buf.write("\5\3\5\3\5\5\5\u0096\n\5\3\6\3\6\3\6\3\6\3\6\3\7\3\7\3")
         buf.write("\7\3\7\3\b\3\b\3\b\3\b\5\b\u00a5\n\b\3\t\3\t\3\t\3\t\3")
         buf.write("\t\5\t\u00ac\n\t\3\n\3\n\3\n\3\n\5\n\u00b2\n\n\3\13\3")
         buf.write("\13\3\13\3\13\5\13\u00b8\n\13\3\f\3\f\5\f\u00bc\n\f\3")
@@ -59,7 +59,7 @@ def serializedATN():
         buf.write("\4\6\b\n\f\16\20\22\24\26\30\32\34\36 \"$&(*,.\60\62\64")
         buf.write("\668:<>@BDFHJLNPRTVXZ\\^`bdfhjlnprtvxz|~\u0080\u0082\2")
         buf.write("\3\3\2\b\n\2\u0206\2\u0084\3\2\2\2\4\u0088\3\2\2\2\6\u008f")
-        buf.write("\3\2\2\2\b\u0093\3\2\2\2\n\u0097\3\2\2\2\f\u009c\3\2\2")
+        buf.write("\3\2\2\2\b\u0095\3\2\2\2\n\u0097\3\2\2\2\f\u009c\3\2\2")
         buf.write("\2\16\u00a4\3\2\2\2\20\u00ab\3\2\2\2\22\u00ad\3\2\2\2")
         buf.write("\24\u00b7\3\2\2\2\26\u00bb\3\2\2\2\30\u00ca\3\2\2\2\32")
         buf.write("\u00cc\3\2\2\2\34\u00ce\3\2\2\2\36\u00d1\3\2\2\2 \u00d8")
@@ -82,9 +82,9 @@ def serializedATN():
         buf.write("\5\6\4\2\u008a\5\3\2\2\2\u008b\u008c\5\b\5\2\u008c\u008d")
         buf.write("\5\6\4\2\u008d\u0090\3\2\2\2\u008e\u0090\3\2\2\2\u008f")
         buf.write("\u008b\3\2\2\2\u008f\u008e\3\2\2\2\u0090\7\3\2\2\2\u0091")
-        buf.write("\u0094\5\n\6\2\u0092\u0094\5\30\r\2\u0093\u0091\3\2\2")
-        buf.write("\2\u0093\u0092\3\2\2\2\u0094\u0095\3\2\2\2\u0095\u0096")
-        buf.write("\5~@\2\u0096\t\3\2\2\2\u0097\u0098\7\16\2\2\u0098\u0099")
+        buf.write("\u0096\5\n\6\2\u0092\u0093\5\30\r\2\u0093\u0094\5~@\2")
+        buf.write("\u0094\u0096\3\2\2\2\u0095\u0091\3\2\2\2\u0095\u0092\3")
+        buf.write("\2\2\2\u0096\t\3\2\2\2\u0097\u0098\7\16\2\2\u0098\u0099")
         buf.write("\7/\2\2\u0099\u009a\5\f\7\2\u009a\u009b\5\24\13\2\u009b")
         buf.write("\13\3\2\2\2\u009c\u009d\7+\2\2\u009d\u009e\5\16\b\2\u009e")
         buf.write("\u009f\7,\2\2\u009f\r\3\2\2\2\u00a0\u00a1\5\22\n\2\u00a1")
@@ -235,7 +235,7 @@ def serializedATN():
         buf.write("\2\2\u0204\u0201\3\2\2\2\u0204\u0203\3\2\2\2\u0205\u0081")
         buf.write("\3\2\2\2\u0206\u0207\7\60\2\2\u0207\u020a\5\u0082B\2\u0208")
         buf.write("\u020a\3\2\2\2\u0209\u0206\3\2\2\2\u0209\u0208\3\2\2\2")
-        buf.write("\u020a\u0083\3\2\2\2+\u008f\u0093\u00a4\u00ab\u00b1\u00b7")
+        buf.write("\u020a\u0083\3\2\2\2+\u008f\u0095\u00a4\u00ab\u00b1\u00b7")
         buf.write("\u00bb\u00bf\u00c4\u00ca\u00d6\u00e3\u00f0\u00f7\u00ff")
         buf.write("\u010a\u0116\u012c\u0132\u013e\u0152\u0163\u0169\u0170")
         buf.write("\u018f\u019a\u019c\u01a8\u01aa\u01b9\u01bb\u01c1\u01c6")
@@ -581,16 +581,16 @@ class ZCodeParser ( Parser ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def linebreaklist(self):
-            return self.getTypedRuleContext(ZCodeParser.LinebreaklistContext,0)
-
-
         def func_decl(self):
             return self.getTypedRuleContext(ZCodeParser.Func_declContext,0)
 
 
         def var_decl(self):
             return self.getTypedRuleContext(ZCodeParser.Var_declContext,0)
+
+
+        def linebreaklist(self):
+            return self.getTypedRuleContext(ZCodeParser.LinebreaklistContext,0)
 
 
         def getRuleIndex(self):
@@ -610,23 +610,24 @@ class ZCodeParser ( Parser ):
         localctx = ZCodeParser.DeclContext(self, self._ctx, self.state)
         self.enterRule(localctx, 6, self.RULE_decl)
         try:
-            self.enterOuterAlt(localctx, 1)
-            self.state = 145
+            self.state = 147
             self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [ZCodeParser.FUNC]:
+                self.enterOuterAlt(localctx, 1)
                 self.state = 143
                 self.func_decl()
                 pass
             elif token in [ZCodeParser.NUMBER, ZCodeParser.BOOL, ZCodeParser.STRING, ZCodeParser.VAR, ZCodeParser.DYNAMIC]:
+                self.enterOuterAlt(localctx, 2)
                 self.state = 144
                 self.var_decl()
+                self.state = 145
+                self.linebreaklist()
                 pass
             else:
                 raise NoViableAltException(self)
 
-            self.state = 147
-            self.linebreaklist()
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -4359,20 +4360,20 @@ class ZCodeParser ( Parser ):
         try:
             self.state = 519
             self._errHandler.sync(self)
-            la_ = self._interp.adaptivePredict(self._input,40,self._ctx)
-            if la_ == 1:
+            token = self._input.LA(1)
+            if token in [ZCodeParser.LINEBREAK]:
                 self.enterOuterAlt(localctx, 1)
                 self.state = 516
                 self.match(ZCodeParser.LINEBREAK)
                 self.state = 517
                 self.linebreaklisttail()
                 pass
-
-            elif la_ == 2:
+            elif token in [ZCodeParser.EOF, ZCodeParser.NUMBER, ZCodeParser.BOOL, ZCodeParser.STRING, ZCodeParser.RETURN, ZCodeParser.VAR, ZCodeParser.DYNAMIC, ZCodeParser.FUNC, ZCodeParser.FOR, ZCodeParser.BREAK, ZCodeParser.CONTINUE, ZCodeParser.IF, ZCodeParser.ELSE, ZCodeParser.ELIF, ZCodeParser.BEGIN, ZCodeParser.END, ZCodeParser.IDENTIFIER]:
                 self.enterOuterAlt(localctx, 2)
 
                 pass
-
+            else:
+                raise NoViableAltException(self)
 
         except RecognitionException as re:
             localctx.exception = re
