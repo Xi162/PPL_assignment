@@ -170,3 +170,14 @@ end
         """
         expect = str(Program([FuncDecl(Id("main"), [], Return(NumberLiteral(1.0)))]))
         self.assertTrue(TestAST.test(input, expect, 314))
+        
+    def test_simple_program_16(self):
+        input = """func main() begin
+        if (true) if (true and true) return 1
+        elif (true) return 2
+        else return 3
+        end
+        """
+        expect = str(Program([FuncDecl(Id("main"), [], Block([
+            If(BooleanLiteral(True), If(BinaryOp("and", BooleanLiteral(True), BooleanLiteral(True)), Return(NumberLiteral(1.0)), [(BooleanLiteral(True), Return(NumberLiteral(2.0)))], Return(NumberLiteral(3.0))))]))]))
+        self.assertTrue(TestAST.test(input, expect, 315))
