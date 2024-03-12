@@ -193,3 +193,37 @@ end
         expect = str(Program([FuncDecl(Id("main"), [], Block([
             If(BooleanLiteral(True), If(BinaryOp("and", BooleanLiteral(True), BooleanLiteral(True)), Return(NumberLiteral(1.0)), [(BooleanLiteral(True), Return(NumberLiteral(2.0)))], Return(NumberLiteral(3.0))), [], Return(NumberLiteral(4.0)))]))]))
         self.assertTrue(TestAST.test(input, expect, 316))
+        
+    def test_simple_program_18(self):
+        input = """func main() begin
+        x <- [12,3, [1,2,3]]
+        end
+        """
+        expect = str(Program([FuncDecl(Id("main"), [], Block([Assign(Id("x"), ArrayLiteral([NumberLiteral(12.0), NumberLiteral(3.0), ArrayLiteral([NumberLiteral(1.0), NumberLiteral(2.0), NumberLiteral(3.0)])]))]))]))
+        self.assertTrue(TestAST.test(input, expect, 317))
+        
+    def test_simple_program_19(self):
+        input = """func main() begin
+        number a[3,4] <- [1,2]
+        x <- [12,3, [1,2,3]]
+        x[1] <- 1
+        end
+        """
+        expect = str(Program([FuncDecl(Id("main"), [], Block([
+            VarDecl(Id("a"), ArrayType([3.0, 4.0], NumberType()), None, ArrayLiteral([NumberLiteral(1.0), NumberLiteral(2.0)])),
+            Assign(Id("x"), ArrayLiteral([NumberLiteral(12.0), NumberLiteral(3.0), ArrayLiteral([NumberLiteral(1.0), NumberLiteral(2.0), NumberLiteral(3.0)])])),
+            Assign(ArrayCell(Id("x"), [NumberLiteral(1.0)]), NumberLiteral(1.0))]))]))
+        self.assertTrue(TestAST.test(input, expect, 318))
+        
+    def test_simple_program_20(self):
+        input = """func main() begin
+        x <- [12,3, [1,2,3]]
+        x[1] <- 1
+        x[1,2] <- x[1,2] + 1
+        end
+        """
+        expect = str(Program([FuncDecl(Id("main"), [], Block([
+            Assign(Id("x"), ArrayLiteral([NumberLiteral(12.0), NumberLiteral(3.0), ArrayLiteral([NumberLiteral(1.0), NumberLiteral(2.0), NumberLiteral(3.0)])])),
+            Assign(ArrayCell(Id("x"), [NumberLiteral(1.0)]), NumberLiteral(1.0)),
+            Assign(ArrayCell(Id("x"), [NumberLiteral(1.0), NumberLiteral(2.0)]), BinaryOp("+", ArrayCell(Id("x"), [NumberLiteral(1.0), NumberLiteral(2.0)]), NumberLiteral(1.0)))]))]))
+        self.assertTrue(TestAST.test(input, expect, 319))

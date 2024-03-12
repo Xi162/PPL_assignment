@@ -1,0 +1,4 @@
+func main() begin
+        x <- [12,3, [1,2,3]]
+        end
+        
